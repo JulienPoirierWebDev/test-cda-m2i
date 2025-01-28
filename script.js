@@ -49,13 +49,21 @@ h1.addEventListener(
 
 // Ajouter un écouteur d'évènement sur l'input lorsque la valeur change
 
+// Selectionner mon bouton
+// Selection de l'input
+// Selection du paragraphe
+
+const buttonCaractères = document.querySelector('.caractères');
 const input = document.querySelector('#paragraph');
+const paragrapheCaractères = document.querySelector('.result-caractères');
 
-console.log(input);
+console.log(buttonCaractères);
 
-input.addEventListener('change', (event) => {
-	console.log('event déclenché');
-	console.log(event.target.value);
-	const value = event.target.value;
-	console.log(compterLeNombreDeCaractères(value));
+buttonCaractères.addEventListener('click', (event) => {
+	event.preventDefault();
+
+	const value = input.value;
+
+	console.log(value);
+	paragrapheCaractères.innerText = compterLeNombreDeCaractères(value);
 });
