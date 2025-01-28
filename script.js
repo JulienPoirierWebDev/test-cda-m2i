@@ -24,5 +24,38 @@ const nombreCaractères = compterLeNombreDeCaractères(monTexte);
 const nombreMots = compterLeNombreDeMots(monTexte);
 const nombrePhrases = compterLeNombreDePhrases(monTexte);
 
-console.log(nombreCaractères, nombreMots, nombrePhrases);
+//console.log(nombreCaractères, nombreMots, nombrePhrases);
 
+// Je selectionne les élements
+
+const h1 = document.querySelector('h1');
+
+console.log(h1);
+h1.innerText = 'Désactive ton micro de basse qualité :)';
+h1.classList.toggle('super-classe');
+
+// J'ajoute un écouteur d'évènements sur ces elements
+
+h1.addEventListener(
+	'click',
+
+	// Pour y associer une fonction qui s'active quand l'évènement est déclenché.
+	() => {
+		const timestamp = Date.now();
+
+		h1.textContent = timestamp;
+	}
+);
+
+// Ajouter un écouteur d'évènement sur l'input lorsque la valeur change
+
+const input = document.querySelector('#paragraph');
+
+console.log(input);
+
+input.addEventListener('change', (event) => {
+	console.log('event déclenché');
+	console.log(event.target.value);
+	const value = event.target.value;
+	console.log(compterLeNombreDeCaractères(value));
+});
