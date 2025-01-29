@@ -100,3 +100,56 @@ function paragraphFeature() {
 
 //paragraphFeature();
 
+let nombreRecherché;
+let nombreDeCoup = 0;
+
+const startButton = document.querySelector('.button');
+const containerJeu = document.querySelector('.container');
+const containerPresentation = document.querySelector('.container-presentation');
+const validateButton = document.querySelector('.validate');
+const inputReponse = document.querySelector('#reponse');
+const feedback = document.querySelector('.feedback');
+const rejouerButton = document.querySelector('.rejouer');
+
+startButton.addEventListener('click', () => {
+	console.log('button');
+
+	containerPresentation.classList.add('hidden');
+	containerJeu.classList.remove('hidden');
+
+	nombreRecherché = Math.ceil(Math.random() * 100);
+
+	console.log(nombreRecherché);
+});
+
+validateButton.addEventListener('click', () => {
+	console.log(inputReponse.value, nombreRecherché);
+	if (inputReponse.value === '') {
+		return;
+	}
+
+	if (inputReponse.value < 0 || inputReponse.value > 100) {
+		feedback.innerText = `Mais tu as mis np quoi Oo !!!`;
+		return;
+	}
+
+	nombreDeCoup++;
+	if (nombreRecherché < inputReponse.value) {
+		feedback.innerText = "C'est moins !";
+		console.log("c'est moins");
+	} else if (nombreRecherché > inputReponse.value) {
+		console.log("c'est plus");
+		feedback.innerText = "C'est plus !";
+	} else {
+		console.log("C'est gagné :)");
+		feedback.innerText = `BINGO ! Vous avez gagné en ${nombreDeCoup} coups`;
+		rejouerButton.classList.remove('hidden');
+	}
+});
+
+rejouerButton.addEventListener('click', () => {
+	nombreRecherché = Math.ceil(Math.random() * 100);
+	inputReponse.value = '';
+	rejouerButton.classList.add('hidden');
+	feedback.innerText = '';
+});

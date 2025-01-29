@@ -1,3 +1,31 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
 	background-color: lightblue;
+}
+
+.card {
+	position: relative;
+	width: 20rem;
+	background-color: white;
+	margin: 2rem;
+	padding: 2rem;
+	box-shadow: 12px 13px 0px 0px #1c71d8;
+	transition: all 1s;
+	left: 0;
+}
+
+.card:hover {
+	box-shadow: 20px 20px 0px 0px red;
+	left: 50px;
+}
+
+.card > * {
+	margin-bottom: 0.8rem;
+}
+
+.hidden {
+	display: none;
 }
