@@ -29,3 +29,10 @@ body {
 .hidden {
 	display: none;
 }
+
+.continent-div {
+	min-height: 100px;
+	background-color: lightcoral;
+	padding: 20px;
+	border: 2px solid black;
+}
